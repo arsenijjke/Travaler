@@ -3,13 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.travaler.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@transition/slide_in"
+            app:exitAnim="@transition/fade_out"
+            app:popEnterAnim="@transition/fade_in"
+            app:popExitAnim="@transition/slide_out" />
+    </fragment>
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.travaler.ui.main.MainFragment"
-        android:label="main_fragment"
-        tools:layout="@layout/main_fragment" >
+        android:name="com.example.travaler.ui.main.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" >
 
     </fragment>
 
