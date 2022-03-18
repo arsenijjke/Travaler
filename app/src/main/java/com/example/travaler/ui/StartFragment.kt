@@ -1,10 +1,11 @@
-package com.example.travaler
+package com.example.travaler.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.travaler.R
 import com.example.travaler.databinding.FragmentStartBinding
 
 class StartFragment : Fragment(R.layout.fragment_start) {
@@ -16,6 +17,7 @@ class StartFragment : Fragment(R.layout.fragment_start) {
         next()
     }
 
+    //Anim
     private fun fadeOut() {
         binding.begin.animate()
             .alpha(0f)

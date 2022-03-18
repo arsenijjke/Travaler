@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/startFragment"
-        android:name="com.example.travaler.StartFragment"
+        android:name="com.example.travaler.ui.StartFragment"
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
@@ -21,10 +21,21 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.travaler.ui.main.LoginFragment"
+        android:name="com.example.travaler.ui.LoginFragment"
         android:label="login_fragment"
         tools:layout="@layout/login_fragment" >
-
+        <action
+            android:id="@+id/loginToRegistration"
+            app:destination="@id/registrationFragment"
+            app:enterAnim="@transition/slide_in"
+            app:exitAnim="@transition/fade_out"
+            app:popEnterAnim="@transition/fade_in"
+            app:popExitAnim="@transition/slide_out" />
     </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.travaler.ui.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration"/>
 
 </navigation>
