@@ -3,6 +3,7 @@ package com.example.travaler.ui
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.travaler.R
 import com.example.travaler.databinding.LoginFragmentBinding
@@ -15,10 +16,15 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        auth()
+        setViews()
     }
 
-    fun auth(){
+    fun setViews(){
+        auth()
+        toRegistration()
+    }
+
+    private fun auth(){
         binding.btnLogin.setOnClickListener {
             viewModel.check(
                 binding.login.toString(),
@@ -27,9 +33,11 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
         }
     }
 
-    fun CANNOTWAITTODIEINTHEMOMENT() {
+    fun toRegistration() {
         binding.registration.setOnClickListener {
-
+            findNavController().navigate(
+                LoginFragmentDirections.loginToRegistration()
+            )
         }
     }
 

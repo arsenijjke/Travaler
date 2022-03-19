@@ -27,10 +27,10 @@
         <action
             android:id="@+id/loginToRegistration"
             app:destination="@id/registrationFragment"
-            app:enterAnim="@transition/slide_in"
+            app:enterAnim="@transition/slide_up"
             app:exitAnim="@transition/fade_out"
             app:popEnterAnim="@transition/fade_in"
-            app:popExitAnim="@transition/slide_out" />
+            app:popExitAnim="@transition/slide_down" />
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
