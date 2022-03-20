@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Travaler"
 include ':app'
+include ':data'

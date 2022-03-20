@@ -1,163 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="1000dp"
+
     tools:context=".ui.RegistrationFragment">
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="1000dp"
+        android:layout_height="wrap_content">
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/createregistration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start_registration"
+            android:textAlignment="center"
+            android:textColor="@color/text_primary"
+            android:textSize="50sp"
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/login_input"
+            style="@style/InputLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:hint="@string/name"
 
-            <TextView
-                android:id="@+id/createregistration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/start_registration"
-                android:textAlignment="center"
-                android:textColor="@color/text_primary"
-                android:textSize="50sp"
+            app:hintTextAppearance="@style/HintAppearance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/createregistration">
 
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login"
+                style="@style/InputLayout.EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/login_input"
-                style="@style/InputLayout"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            style="@style/InputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:hint="@string/password"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_input"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/primary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                style="@style/InputLayout.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="32dp"
-                android:hint="@string/name"
+                android:inputType="textPassword" />
 
-                app:hintTextAppearance="@style/HintAppearance"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/createregistration">
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/login"
-                    style="@style/InputLayout.EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cw1"
+            style="@style/ImageCardViews"
+            android:layout_width="105dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="30dp"
 
-            </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayout">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout"
-                style="@style/InputLayout"
+            <ImageView
+                android:id="@+id/set1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="32dp"
-                android:hint="@string/password"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_add" />
 
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/login_input"
-                app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@color/primary">
+        </com.google.android.material.card.MaterialCardView>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password"
-                    style="@style/InputLayout.EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword" />
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cw2"
+            style="@style/ImageCardViews"
+            android:layout_width="105dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
 
-            </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintEnd_toStartOf="@+id/cw3"
+            app:layout_constraintStart_toEndOf="@id/cw1"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayout">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cw1"
-                style="@style/ImageCardViews"
-                android:layout_width="105dp"
-                android:layout_height="120dp"
-                android:layout_marginStart="30dp"
-
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textInputLayout">
-
-                <ImageView
-                    android:id="@+id/set1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_add" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cw2"
-                style="@style/ImageCardViews"
-                android:layout_width="105dp"
-                android:layout_height="120dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-
-                app:layout_constraintEnd_toStartOf="@+id/cw3"
-                app:layout_constraintStart_toEndOf="@id/cw1"
-                app:layout_constraintTop_toBottomOf="@id/textInputLayout">
-
-                <ImageView
-                    android:id="@+id/set2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_add" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cw3"
-                style="@style/ImageCardViews"
-                android:layout_width="105dp"
-                android:layout_height="120dp"
-                android:layout_marginEnd="30dp"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textInputLayout">
-
-                <ImageView
-                    android:id="@+id/set3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_add" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_continue"
-                style="@style/Button"
+            <ImageView
+                android:id="@+id/set2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
-                android:layout_marginEnd="100dp"
-                android:layout_marginTop="50dp"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_add" />
 
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cw2"/>
+        </com.google.android.material.card.MaterialCardView>
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="50dp"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cw3"
+            style="@style/ImageCardViews"
+            android:layout_width="105dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="30dp"
 
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_continue" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayout">
+
+            <ImageView
+                android:id="@+id/set3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_add" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_continue"
+            style="@style/Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="100dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cw2" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="50dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_continue" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
-
-    </FrameLayout>
