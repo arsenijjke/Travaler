@@ -9,6 +9,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.travaler.R
 import com.example.travaler.databinding.FragmentRegistrationBinding
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class RegistrationFragment : Fragment(R.layout.fragment_registration) {
 
@@ -17,6 +19,10 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setImage()
+        val retrofit = Retrofit.Builder()
+            .baseUrl("")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
     }
 
     //TODO Refactor this later!!!
