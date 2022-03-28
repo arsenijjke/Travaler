@@ -1,28 +1,30 @@
 package com.example.travaler.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.travaler.R
+import com.example.data.network.Api
 import com.example.travaler.databinding.FragmentRegistrationBinding
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.example.travaler.model.viewmodels.RegistrationViewModel
+import repository.AuthRepository
 
-class RegistrationFragment : Fragment(R.layout.fragment_registration) {
+class RegistrationFragment : BaseFragment<RegistrationViewModel, FragmentRegistrationBinding, AuthRepository>() {
 
-    private val binding: FragmentRegistrationBinding by viewBinding()
+    override fun getViewModel(): Class<RegistrationViewModel> = RegistrationViewModel::class.java
+
+    override fun getFragmentBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) = FragmentRegistrationBinding.inflate(inflater,container,false)
+
+    override fun getRepository() = AuthRepository(retrofit.buildApi(api = Api::class.java))
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setImage()
-        val retrofit = Retrofit.Builder()
-            .baseUrl("")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
     }
 
     //TODO Refactor this later!!!
@@ -42,4 +44,6 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
             set3.setOnClickListener { selectImage2.launch("image/*") }
         }
     }
+
+
 }

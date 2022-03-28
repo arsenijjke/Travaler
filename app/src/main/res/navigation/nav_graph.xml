@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.travaler.ui.LoginFragment"
+        android:name="com.example.travaler.ui.AuthFragment"
         android:label="login_fragment"
         tools:layout="@layout/login_fragment" >
         <action

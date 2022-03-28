@@ -1,9 +1,6 @@
 package com.example.domain.models
 
-data class UserModel(
+data class UserRegistration(
     val nickname: String,
-    val id: Int,
     val password: String
-    )
-
-
+)
