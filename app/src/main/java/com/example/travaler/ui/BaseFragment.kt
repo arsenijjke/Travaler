@@ -10,12 +10,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.example.data.network.RetrofitObject
 import com.example.travaler.model.viewmodels.ViewModelFactory
-import repository.BaseRepository
+import com.example.data.network.repository.BaseRepository
 
 abstract class BaseFragment<VM : ViewModel, B : ViewBinding, R : BaseRepository> : Fragment() {
 
     protected lateinit var binding: B
-    private lateinit var viewModel: VM
+    protected lateinit var viewModel: VM
     protected val retrofit = RetrofitObject()
 
     override fun onCreateView(

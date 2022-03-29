@@ -1,4 +1,4 @@
-package repository
+package com.example.data.network.repository
 
 import com.example.domain.models.Resource
 import kotlinx.coroutines.Dispatchers

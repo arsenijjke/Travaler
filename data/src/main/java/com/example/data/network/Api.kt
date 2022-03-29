@@ -1,5 +1,6 @@
 package com.example.data.network
 
+import com.example.domain.models.LoginResponse
 import com.example.domain.models.UserModel
 import com.example.domain.models.UserRegistration
 import retrofit2.Call
@@ -12,5 +13,7 @@ interface Api {
     suspend fun createUser(
         @Query("nickname") nickname: String,
         @Query("password") password: String,
-    ) : UserModel
+    ) : LoginResponse
+
+
 }

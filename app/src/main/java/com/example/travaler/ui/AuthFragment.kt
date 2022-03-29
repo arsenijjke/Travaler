@@ -6,7 +6,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.data.network.Api
 import com.example.travaler.databinding.LoginFragmentBinding
 import com.example.travaler.model.viewmodels.AuthViewModel
-import repository.AuthRepository
+import com.example.data.network.repository.AuthRepository
 
 class AuthFragment : BaseFragment<AuthViewModel, LoginFragmentBinding, AuthRepository>() {
 
@@ -30,7 +30,8 @@ class AuthFragment : BaseFragment<AuthViewModel, LoginFragmentBinding, AuthRepos
         }
     }
 
-    fun toRegistration() {
+
+    private fun toRegistration() {
         binding.registration.setOnClickListener {
             findNavController().navigate(
                 AuthFragmentDirections.loginToRegistration()
