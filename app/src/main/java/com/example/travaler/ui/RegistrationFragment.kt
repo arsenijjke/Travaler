@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import com.example.data.network.Api
 import com.example.travaler.databinding.FragmentRegistrationBinding
 import com.example.travaler.model.viewmodels.RegistrationViewModel
@@ -28,7 +26,7 @@ class RegistrationFragment : BaseFragment<RegistrationViewModel, FragmentRegistr
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
+        viewModel.loginResponse.observe(viewLifecycleOwner, {
             when(it) {
                 is Resource.Success -> { Toast.makeText(requireContext(),"Success",Toast.LENGTH_SHORT).show()}
                 else -> Toast.makeText(requireContext(),"Failure",Toast.LENGTH_SHORT).show()

@@ -1,6 +1,8 @@
 package com.example.travaler.ui
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.data.network.Api
@@ -18,6 +20,11 @@ class AuthFragment : BaseFragment<AuthViewModel, LoginFragmentBinding, AuthRepos
     ) = LoginFragmentBinding.inflate(inflater, container, false)
 
     override fun getRepository() = AuthRepository(retrofit.buildApi(api = Api::class.java))
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setViews()
+    }
 
     fun setViews() {
         auth()
