@@ -37,7 +37,6 @@ class AuthFragment : BaseFragment<AuthViewModel, LoginFragmentBinding, AuthRepos
         }
     }
 
-
     private fun toRegistration() {
         binding.registration.setOnClickListener {
             findNavController().navigate(
