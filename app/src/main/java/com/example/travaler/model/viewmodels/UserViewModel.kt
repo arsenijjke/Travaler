@@ -12,7 +12,9 @@ import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.launch
 
 @InternalCoroutinesApi
-class UserViewModel(application: Application) : AndroidViewModel(application) {
+open class UserViewModel(
+    application: Application
+) : AndroidViewModel(application) {
 
     private val readAllData: LiveData<List<User>>
     private val repository: UserRepository

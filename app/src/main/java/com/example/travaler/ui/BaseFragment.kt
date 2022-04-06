@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
+import com.example.data.database.UserDao
 import com.example.data.network.RetrofitObject
 import com.example.travaler.model.viewmodels.ViewModelFactory
 import com.example.data.repository.BaseRepository

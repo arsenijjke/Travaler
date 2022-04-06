@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetrofitObject {
 
     companion object {
-        private const val BASE_URL = ""
+        private const val BASE_URL = "https://github.com/arsenijjke/Travaler/"
     }
 
     fun <Api> buildApi(

@@ -7,10 +7,11 @@ import androidx.lifecycle.viewModelScope
 import com.example.domain.models.Resource
 import kotlinx.coroutines.launch
 import com.example.data.repository.AuthRepository
+import com.example.data.repository.UserRepository
 import com.example.domain.models.LoginResponse
 
 class RegistrationViewModel(
-    private val repository: AuthRepository
+    private val repository: AuthRepository,
 ) : ViewModel() {
 
     private val _loginResponse: MutableLiveData<Resource<LoginResponse>> = MutableLiveData()
@@ -23,4 +24,5 @@ class RegistrationViewModel(
     ) = viewModelScope.launch {
             _loginResponse.value = repository.createAccount(email, password)
     }
+
 }

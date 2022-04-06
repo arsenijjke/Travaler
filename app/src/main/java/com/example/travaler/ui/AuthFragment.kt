@@ -6,18 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.data.network.Api
-import com.example.travaler.databinding.LoginFragmentBinding
 import com.example.travaler.model.viewmodels.AuthViewModel
 import com.example.data.repository.AuthRepository
+import com.example.travaler.databinding.FragmentLoginBinding
 
-class AuthFragment : BaseFragment<AuthViewModel, LoginFragmentBinding, AuthRepository>() {
+class AuthFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepository>() {
 
     override fun getViewModel(): Class<AuthViewModel> = AuthViewModel::class.java
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ) = LoginFragmentBinding.inflate(inflater, container, false)
+    ) = FragmentLoginBinding.inflate(inflater, container, false)
 
     override fun getRepository() = AuthRepository(retrofit.buildApi(api = Api::class.java))
 
@@ -26,14 +26,13 @@ class AuthFragment : BaseFragment<AuthViewModel, LoginFragmentBinding, AuthRepos
         setViews()
     }
 
-    fun setViews() {
+    private fun setViews() {
         auth()
         toRegistration()
     }
 
     private fun auth() {
         binding.btnLogin.setOnClickListener {
-
         }
     }
 

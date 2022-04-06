@@ -1,10 +1,9 @@
 package com.example.data.repository
 
-import androidx.lifecycle.LiveData
 import com.example.data.database.User
 import com.example.data.database.UserDao
 
-class UserRepository(private val userDao: UserDao) {
+class UserRepository(private val userDao: UserDao) : BaseRepository() {
 
     val readAllData = userDao.readAllData()
 

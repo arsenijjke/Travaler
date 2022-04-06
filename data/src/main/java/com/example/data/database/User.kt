@@ -1,6 +1,6 @@
 package com.example.data.database
 
-import android.net.Uri
+import android.graphics.Bitmap
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -10,5 +10,5 @@ data class User(
     val id: Int,
     val name: String,
     val password: String,
-    val photoUri: Uri
+    val photo: Bitmap
 )
