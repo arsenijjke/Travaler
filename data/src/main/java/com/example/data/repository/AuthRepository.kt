@@ -1,4 +1,4 @@
-package com.example.data.network.repository
+package com.example.data.repository
 
 import com.example.data.network.Api
 

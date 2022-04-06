@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.data.network.Api
 import com.example.travaler.databinding.LoginFragmentBinding
 import com.example.travaler.model.viewmodels.AuthViewModel
-import com.example.data.network.repository.AuthRepository
+import com.example.data.repository.AuthRepository
 
 class AuthFragment : BaseFragment<AuthViewModel, LoginFragmentBinding, AuthRepository>() {
 

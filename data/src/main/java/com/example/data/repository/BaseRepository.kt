@@ -1,8 +1,7 @@
-package com.example.data.network.repository
+package com.example.data.repository
 
 import com.example.domain.models.Resource
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 

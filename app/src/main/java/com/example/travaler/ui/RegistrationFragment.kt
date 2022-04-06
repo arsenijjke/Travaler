@@ -9,7 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.example.data.network.Api
 import com.example.travaler.databinding.FragmentRegistrationBinding
 import com.example.travaler.model.viewmodels.RegistrationViewModel
-import com.example.data.network.repository.AuthRepository
+import com.example.data.repository.AuthRepository
 import com.example.domain.models.Resource
 
 class RegistrationFragment : BaseFragment<RegistrationViewModel, FragmentRegistrationBinding, AuthRepository>() {

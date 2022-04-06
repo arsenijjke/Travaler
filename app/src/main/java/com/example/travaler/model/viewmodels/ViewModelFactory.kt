@@ -2,8 +2,8 @@ package com.example.travaler.model.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.data.network.repository.AuthRepository
-import com.example.data.network.repository.BaseRepository
+import com.example.data.repository.AuthRepository
+import com.example.data.repository.BaseRepository
 import java.lang.IllegalArgumentException
 
 class ViewModelFactory(

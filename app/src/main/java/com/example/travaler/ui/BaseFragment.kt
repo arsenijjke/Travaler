@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.example.data.network.RetrofitObject
 import com.example.travaler.model.viewmodels.ViewModelFactory
-import com.example.data.network.repository.BaseRepository
+import com.example.data.repository.BaseRepository
 
 abstract class BaseFragment<VM : ViewModel, B : ViewBinding, R : BaseRepository> : Fragment() {
 

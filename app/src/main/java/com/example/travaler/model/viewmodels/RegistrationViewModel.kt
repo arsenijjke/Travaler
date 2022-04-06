@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.models.Resource
 import kotlinx.coroutines.launch
-import com.example.data.network.repository.AuthRepository
+import com.example.data.repository.AuthRepository
 import com.example.domain.models.LoginResponse
 
 class RegistrationViewModel(
