@@ -41,7 +41,6 @@ class RegistrationFragment : BaseFragment<AuthViewModel, FragmentRegistrationBin
         toHome()
     }
 
-    //TODO Refactor this later!!!
     private fun setImage() {
         val selectImage = registerForActivityResult(ActivityResultContracts.GetContent()) {
             binding.set1.setImageURI(it)
