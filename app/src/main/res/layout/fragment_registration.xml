@@ -41,12 +41,13 @@
                 android:id="@+id/login"
                 style="@style/InputLayout.EditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
+            android:id="@+id/passwordInput"
             style="@style/InputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -64,7 +65,7 @@
                 style="@style/InputLayout.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword" />
+                android:inputType="textPersonName" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,7 +77,7 @@
             android:layout_marginStart="30dp"
 
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textInputLayout">
+            app:layout_constraintTop_toBottomOf="@id/passwordInput">
 
             <ImageView
                 android:id="@+id/set1"
@@ -97,7 +98,7 @@
 
             app:layout_constraintEnd_toStartOf="@+id/cw3"
             app:layout_constraintStart_toEndOf="@id/cw1"
-            app:layout_constraintTop_toBottomOf="@id/textInputLayout">
+            app:layout_constraintTop_toBottomOf="@id/passwordInput">
 
             <ImageView
                 android:id="@+id/set2"
@@ -116,7 +117,7 @@
             android:layout_marginEnd="30dp"
 
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textInputLayout">
+            app:layout_constraintTop_toBottomOf="@id/passwordInput">
 
             <ImageView
                 android:id="@+id/set3"

@@ -31,4 +31,8 @@ open class UserViewModel(
         }
     }
 
+    fun insertToDatabase() {
+
+    }
+
 }

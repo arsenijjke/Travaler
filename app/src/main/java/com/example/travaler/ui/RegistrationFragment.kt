@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.data.database.User
 import com.example.data.network.Api
 import com.example.travaler.databinding.FragmentRegistrationBinding
@@ -22,7 +23,7 @@ import kotlinx.coroutines.InternalCoroutinesApi
 @InternalCoroutinesApi
 class RegistrationFragment : BaseFragment<AuthViewModel, FragmentRegistrationBinding, AuthRepository>() {
 
-    private lateinit var trueViewModel: UserViewModel
+    private lateinit var userViewModel: UserViewModel
 
     override fun getViewModel(): Class<AuthViewModel> = AuthViewModel::class.java
 
@@ -35,9 +36,9 @@ class RegistrationFragment : BaseFragment<AuthViewModel, FragmentRegistrationBin
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        trueViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        addToDatabase()
+        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         setImage()
+        toHome()
     }
 
     //TODO Refactor this later!!!
@@ -58,9 +59,12 @@ class RegistrationFragment : BaseFragment<AuthViewModel, FragmentRegistrationBin
         }
     }
 
-    private fun addToDatabase() {
+    private fun toHome() {
         binding.btnContinue.setOnClickListener {
             insertDataToDatabase()
+            findNavController().navigate(
+                RegistrationFragmentDirections.registrationToHome()
+            )
         }
     }
 
@@ -70,8 +74,11 @@ class RegistrationFragment : BaseFragment<AuthViewModel, FragmentRegistrationBin
         val photo = getBitmap()
         if(inputCheck(nickname,password,photo)) {
             val user = User(0,nickname, password, photo)
-            trueViewModel.addUser(user)
-            Toast.makeText(context,"Success",Toast.LENGTH_LONG).show()
+            userViewModel.addUser(user)
+            Toast.makeText(context,"Success",Toast.LENGTH_SHORT).show()
+
+        } else {
+            Toast.makeText(context,"Failure",Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -82,8 +89,22 @@ class RegistrationFragment : BaseFragment<AuthViewModel, FragmentRegistrationBin
     }
 
     private fun inputCheck(name: String, password: String, photo: Bitmap): Boolean {
-        return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(password) && TextUtils.isEmpty(photo.toString()))
+        var isEmpty = true
+        when {
+            TextUtils.isEmpty(name) -> {
+                binding.loginInput.error = "Please enter your name!"
+                isEmpty = false
+            }
+            TextUtils.isEmpty(password) -> {
+                binding.passwordInput.error = "Please enter your paswword!"
+                isEmpty = false
+            }
+            photo == null -> {
+                Toast.makeText(context, "Select at least 1 photo", Toast.LENGTH_LONG).show()
+                isEmpty = false
+            }
+        }
+        return isEmpty
     }
-
 
 }
