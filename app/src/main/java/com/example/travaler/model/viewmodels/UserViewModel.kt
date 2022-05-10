@@ -31,8 +31,10 @@ open class UserViewModel(
         }
     }
 
-    fun insertToDatabase() {
-
+    fun login(name: String, password: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.login(name, password)
+        }
     }
 
 }

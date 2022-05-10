@@ -19,7 +19,6 @@ import com.example.travaler.model.viewmodels.AuthViewModel
 import com.example.travaler.model.viewmodels.UserViewModel
 import kotlinx.coroutines.InternalCoroutinesApi
 
-
 @InternalCoroutinesApi
 class RegistrationFragment : BaseFragment<AuthViewModel, FragmentRegistrationBinding, AuthRepository>() {
 
@@ -36,7 +35,7 @@ class RegistrationFragment : BaseFragment<AuthViewModel, FragmentRegistrationBin
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
         setImage()
         toHome()
     }
@@ -71,7 +70,7 @@ class RegistrationFragment : BaseFragment<AuthViewModel, FragmentRegistrationBin
         val nickname = binding.login.text.toString()
         val password = binding.password.text.toString()
         val photo = getBitmap()
-        if(inputCheck(nickname,password,photo)) {
+        if(inputCheck(nickname,password)) {
             val user = User(0,nickname, password, photo)
             userViewModel.addUser(user)
             Toast.makeText(context,"Success",Toast.LENGTH_SHORT).show()
@@ -87,7 +86,7 @@ class RegistrationFragment : BaseFragment<AuthViewModel, FragmentRegistrationBin
         return (profilePhoto as BitmapDrawable).bitmap
     }
 
-    private fun inputCheck(name: String, password: String, photo: Bitmap): Boolean {
+    private fun inputCheck(name: String, password: String): Boolean {
         var isEmpty = true
         when {
             TextUtils.isEmpty(name) -> {
@@ -96,10 +95,6 @@ class RegistrationFragment : BaseFragment<AuthViewModel, FragmentRegistrationBin
             }
             TextUtils.isEmpty(password) -> {
                 binding.passwordInput.error = "Please enter your paswword!"
-                isEmpty = false
-            }
-            photo == null -> {
-                Toast.makeText(context, "Select at least 1 photo", Toast.LENGTH_LONG).show()
                 isEmpty = false
             }
         }

@@ -12,6 +12,10 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addUser(user: User)
 
-    @Query("SELECT * FROM user_table ORDER BY id ASC")
+    @Query("SELECT * FROM user_table ORDER BY userId ASC")
     fun readAllData(): LiveData<List<User>>
+
+    @Query("SELECT * FROM user_table where name=(:name) and password=(:password)")
+    fun login(name: String, password: String): User
+
 }

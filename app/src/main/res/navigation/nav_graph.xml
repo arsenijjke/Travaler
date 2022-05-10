@@ -32,8 +32,12 @@
             app:popEnterAnim="@transition/fade_in"
             app:popExitAnim="@transition/slide_down" />
         <action
-            android:id="@+id/action_mainFragment_to_homeFragment"
-            app:destination="@id/homeActivity" />
+            android:id="@+id/loginToHome"
+            app:destination="@id/homeActivity"
+            app:enterAnim="@transition/slide_up"
+            app:exitAnim="@transition/fade_out"
+            app:popEnterAnim="@transition/fade_in"
+            app:popExitAnim="@transition/slide_down"/>
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
